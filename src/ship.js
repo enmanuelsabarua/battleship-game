@@ -1,7 +1,9 @@
-export default function Ship(length, hitNumber, sunk) {
+export default function Ship(id, length, hitNumber, sunk) {
+    const shipId = id;
     let hitAmount = hitNumber;
     let sunkState = sunk;
     
+    const getId = () => shipId;
     const getLength = () => length;
     const getHitNumber = () => hitAmount;
     const getSunkState = () => sunkState;
@@ -9,8 +11,8 @@ export default function Ship(length, hitNumber, sunk) {
 
     const hit = () => hitAmount++;
 
-    const isSunk = (length, hitNumber) => {
-        if (hitNumber >= length) {
+    const isSunk = () => {
+        if (hitAmount >= getLength()) {
             setSunkState(true);
             return true;
         }
@@ -19,6 +21,7 @@ export default function Ship(length, hitNumber, sunk) {
     }
 
     return {
+        getId,
         getLength,
         getHitNumber,
         getSunkState,

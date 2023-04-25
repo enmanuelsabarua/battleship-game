@@ -5,13 +5,12 @@ describe('Ship functions', () => {
     let ship2;
 
     beforeEach(() => {
-        ship1 = Ship(4, 0, false);
-        ship2 = Ship(2, 0, false);
+        ship1 = Ship(0, 4, 0, false);
+        ship2 = Ship(1, 2, 0, false);
     });
 
     it('Accepts a hit', () => {
         ship1.hit();
-        console.log(ship1.getHitNumber());
         expect(ship1.getHitNumber()).toBe(1);
     });
 
@@ -26,7 +25,7 @@ describe('Ship functions', () => {
         expect(ship2.isSunk(ship2.getLength(), ship2.getHitNumber())).toBe(false);
     });
 
-    it('Shows that the boat is  sunk', () => {
+    it('Shows that the boat is sunk', () => {
         ship1.hit();
         ship1.hit();
         ship1.hit();
