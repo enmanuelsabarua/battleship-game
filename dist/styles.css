@@ -1,0 +1,79 @@
+*, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Black Ops One', cursive;
+    text-align: center;
+}
+
+.container {
+    padding: 0 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 3rem;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+button {
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+    transition: .2s ease-in;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(189, 189, 189, 0.16);
+}
+
+.gameboards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 4rem;
+}
+
+.gameboard {
+    width: 400px;
+    height: 400px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    margin-bottom: 1rem;
+}
+
+.box {
+    border: 1px solid black;
+    transition: .3s ease-in-out;
+}
+
+.gameboard2 .box:hover {
+    cursor: crosshair;
+}
+
+.selected {
+    background-color: black;
+}
+
+.attacked {
+    background-color: rgb(255, 0, 0);
+}
+
+.missed {
+    background-color: rgba(0, 0, 0, 0.377);
+}
+
+.winner p {
+    font-size: 2rem;
+    margin-top: 4rem;
+}
