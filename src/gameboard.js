@@ -1,6 +1,6 @@
 import Ship from "./ship.js"
 
-export default function Gameboard(x, y) {
+export default function Gameboard() {
     let board = [];
     const ships = [];
     let id = 0;
@@ -74,10 +74,13 @@ export default function Gameboard(x, y) {
         return true;
     }
 
+    const getShips = () => ships;
+
     return {
         board,
         placeShip,
         receiveAttack,
-        areSunk
+        areSunk,
+        getShips
     }
 }
