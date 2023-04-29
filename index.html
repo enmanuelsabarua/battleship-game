@@ -14,7 +14,42 @@
     <div class="container">
         <h1>Battleship</h1>
 
-        <button type="button">Start Game</button>
+        <div class="background">
+            <form class="form">
+                <h2>Place The Ships</h2>
+                <h3>Coordinates</h3>
+                <p class="boat-type carrier active">Carrier</p>
+                <p class="boat-type battleship">Battleship</p>
+                <p class="boat-type destroyer">Destroyer</p>
+                <p class="boat-type submarine">Submarine</p>
+                <p class="boat-type patrol-boat">Patrol Boat</p>
+                <div class="coordinates">
+                    <div>
+                        <label for="x">X</label>
+                        <input required type="number" placeholder="0 - 9" id="x" min="0" max="9">
+                    </div>
+        
+                    <div>
+                        <label for="y">Y</label>
+                        <input required type="number" placeholder="0 - 9" id="y" min="0" max="9">
+                    </div>
+                </div>
+    
+                <div class="axis">
+                    <div>
+                        <input checked type="radio" name="axis" id="vertical" value="1">
+                        <label for="vertical">Vertical</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" name="axis" id="horizontal" value="0">
+                        <label for="horizontal">Horizontal</label>
+                    </div>
+                </div>
+
+                <button id="place" type="submit">Place</button>
+            </form>
+        </div>
 
         <div class="winner"></div>
         <div class="gameboards">
