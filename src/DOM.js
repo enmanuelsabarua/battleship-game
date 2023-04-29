@@ -1,5 +1,3 @@
-import Player from "./player";
-
 const DOMinteraction = (() => {
     const createGameboards = () => {
         const gameboards = document.querySelectorAll('.gameboard');
@@ -82,7 +80,7 @@ const DOMinteraction = (() => {
                             }
                         }
                     });
-                }, 1000);
+                }, 500);
 
                 if(playerGameboard.areSunk()) {
                     winner.innerHTML = '<p>Player 2 Win!</p>';
@@ -93,10 +91,55 @@ const DOMinteraction = (() => {
         });
     }
 
+    const placeShipsOnTheScreen = gameBoard => {
+        let length = 5;
+        
+        const form = document.querySelector('.form');
+        const x = document.querySelector('#x');
+        const y = document.querySelector('#y');
+        const placeBtn = document.querySelector('#place');
+        
+        const ships = document.querySelectorAll('.boat-type');
+        
+        const initialScreen = document.querySelector('.background');
+        
+        let i = 0;
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            const axis = document.querySelector('input[name="axis"]:checked');
+            let validPlace = gameBoard.placeShip(+x.value, +y.value, length, +axis.value);
+
+            if (!validPlace) {
+                placeBtn.classList.add('wrong-place');
+
+                setTimeout(() => {
+                    placeBtn.classList.remove('wrong-place');
+                }, 2000);
+
+                return;
+            }
+
+            
+            ships[i].classList.remove('active');
+            ships[i + 1].classList.add('active');
+            if (i < 3) i++;
+            length--;
+
+            // If all ships are placed do this
+            if (length < 1) {
+                initialScreen.remove();
+                renderGameboard(gameBoard, 1);
+                return true;
+            }
+        });
+    }
+
     return {
         createGameboards,
         renderGameboard,
         renderAttack,
+        placeShipsOnTheScreen,
     }
 })();
 
