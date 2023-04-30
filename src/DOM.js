@@ -42,7 +42,7 @@ const DOMinteraction = (() => {
                     return;
                 }
 
-                const board = gameBoard.board[e.target.dataset.column][e.target.dataset.row];
+                const board = gameBoard.board[+e.target.dataset.column][+e.target.dataset.row];
                 if (board !== 0 && board !== -1) {
                     square.classList.remove('selected');
                     square.classList.add('attacked');
@@ -50,7 +50,7 @@ const DOMinteraction = (() => {
                     square.classList.add('missed');
                 }
 
-                player1.attack(gameBoard, e.target.dataset.row, e.target.dataset.column);
+                player1.attack(gameBoard, +e.target.dataset.row, +e.target.dataset.column);
 
                 if (gameBoard.areSunk()) {
                     winner.innerHTML = '<p>Player 1 Win!</p>';
